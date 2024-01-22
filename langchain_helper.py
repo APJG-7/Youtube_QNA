@@ -12,7 +12,7 @@ from langchain.chains import RetrievalQA
 from langchain_community.vectorstores import Qdrant
 from langchain.chains.question_answering import load_qa_chain
 from langchain.chains import RetrievalQA
-from langchain.chains.qa_with_sources.retrieval import RetrievalQAWithSourcesChain
+from langchain.chains.qa_with_sources.retrieval import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_community.document_loaders import YoutubeLoader
 
@@ -61,7 +61,7 @@ def get_the_answer(qdrant,query,open_ai_key,k=4):
     {question}
     """
 
-    chain = RetrievalQAWithSourcesChain.from_chain_type(
+    chain = RetrievalQA.from_chain_type(
     llm=llm,
     chain_type="stuff",
     retriever=retriever,
